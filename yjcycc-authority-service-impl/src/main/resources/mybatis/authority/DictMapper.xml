@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yjcycc.authority.service.mapper.DictMapper">
+
+    <!-- table name -->
+    <sql id="tableName">
+		sys_dict
+	</sql>
+
+    <!-- select field -->
+    <sql id="selectField">
+		id,
+        parent_id AS "parentId",
+        name AS "name",
+        value AS "value",
+        type AS "type",
+        label AS "label",
+        sort AS "sort",
+        description AS "description",
+        create_time AS "createTime",
+        update_time AS "updateTime"
+	</sql>
+
+    <!-- add field -->
+    <sql id="addField">
+        parent_id,
+        name,
+        value,
+        type,
+        label,
+        sort,
+        description,
+        create_time,
+        update_time
+	</sql>
+
+    <!-- field values -->
+    <sql id="fieldValue">
+        #{parentId},
+        #{name},
+        #{value},
+        #{type},
+        #{label},
+        #{sort},
+        #{description},
+        #{createTime},
+        #{updateTime}
+	</sql>
+
+    <!-- getByEntity -->
+    <select id="getById" resultType="Dict" parameterType="long">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        AND id = #{id}
+        limit 1
+    </select>
+
+    <!-- getByEntity -->
+    <select id="get" resultType="Dict" parameterType="Dict">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="id != null and id != ''">
+            AND id = #{id}
+        </if>
+        <if test="type != null and type != ''">
+            AND type = #{type}
+        </if>
+        <if test="label != null and label != ''">
+            AND label = #{label}
+        </if>
+        limit 1
+    </select>
+
+    <!-- getByMap -->
+    <select id="getByMap" resultType="Dict" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="id != null and id != ''">
+            AND id = #{id}
+        </if>
+        limit 1
+    </select>
+
+    <!-- 分页, 使用了pagehelper插件 -->
+    <select id="findPager" resultType="Dict" parameterType="Dict">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <!-- AND id = #{id} -->
+        ORDER BY create_time desc
+    </select>
+
+    <!-- 分页, 使用了pagehelper插件 -->
+    <select id="findPagerByMap" resultType="Dict" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <!-- AND id = #{id} -->
+        ORDER BY create_time desc
+    </select>
+
+    <!-- 查找List -->
+    <select id="findList" resultType="Dict" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="type != null">
+            AND type = #{type}
+        </if>
+        ORDER BY create_time desc
+    </select>
+
+    <!-- 查找List -->
+    <select id="findListByMap" resultType="Dict" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="type != null">
+            AND type = #{type}
+        </if>
+        ORDER BY create_time desc
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="Dict">
+        INSERT INTO
+        <include refid="tableName"></include>
+        (
+        <include refid="addField"></include>
+        ) VALUES (
+        <include refid="fieldValue"></include>
+        )
+    </insert>
+
+    <!-- updateByEntity -->
+    <update id="update" parameterType="Dict">
+        UPDATE <include refid="tableName"></include>
+        SET
+        parent_id = #{parentId},
+        name = #{name},
+        value = #{value},
+        type = #{type},
+        label = #{label},
+        sort = #{sort},
+        description = #{description},
+        update_time = NOW()
+        WHERE
+        id = #{id}
+    </update>
+
+    <!-- updateByMap -->
+    <update id="updateByMap" parameterType="map">
+        UPDATE <include refid="tableName"></include>
+        SET
+        username = #{username}
+        WHERE
+        id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="Dict">
+        DELETE FROM <include refid="tableName"></include>
+        WHERE
+        id = #{id}
+    </delete>
+
+    <!-- batch delete -->
+    <delete id="batchDelete" parameterType="String">
+        DELETE FROM <include refid="tableName"></include>
+        WHERE
+        id in (${ids})
+    </delete>
+
+</mapper>

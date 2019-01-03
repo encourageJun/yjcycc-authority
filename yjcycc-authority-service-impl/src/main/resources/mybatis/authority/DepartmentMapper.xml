@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yjcycc.authority.service.mapper.DepartmentMapper">
+
+    <!-- table name -->
+    <sql id="tableName">
+		sys_department
+	</sql>
+
+    <!-- select field -->
+    <sql id="selectField">
+		id AS "id",
+        branch_type AS "branchType",
+        parent_id AS "parentId",
+        region_id AS "regionId",
+        name AS "name",
+        identifier AS "identifier",
+        main_head AS "mainHead",
+        deputy_head AS "deputyHead",
+        path AS "path",
+        sort AS "sort",
+        description AS "description",
+        create_time AS "createTime",
+        update_time AS "updateTime"
+	</sql>
+
+    <!-- add field -->
+    <sql id="addField">
+        id,
+        branch_type,
+        parent_id,
+        region_id,
+        name,
+        identifier,
+        main_head,
+        deputy_head,
+        path,
+        sort,
+        description,
+        create_time,
+        update_time
+	</sql>
+
+    <!-- field values -->
+    <sql id="fieldValue">
+        #{id},
+        #{branchType},
+        #{parentId},
+        #{regionId},
+        #{name},
+        #{identifier},
+        #{mainHead},
+        #{deputyHead},
+        #{path},
+        #{sort},
+        #{description},
+        #{createTime},
+        #{updateTime}
+	</sql>
+
+    <!-- getById -->
+    <select id="getById" resultType="Department" parameterType="long">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        AND id = #{id}
+        limit 1
+    </select>
+
+    <!-- getByEntity -->
+    <select id="get" resultType="Department" parameterType="Department">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="id != null and id != ''">
+            AND id = #{id}
+        </if>
+        limit 1
+    </select>
+
+    <!-- getByMap -->
+    <select id="getByMap" resultType="Department" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <if test="id != null and id != ''">
+            AND id = #{id}
+        </if>
+        limit 1
+    </select>
+
+    <!-- 分页, 使用了pagehelper插件 -->
+    <select id="findPager" resultType="Department" parameterType="Department">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <!-- AND id = #{id} -->
+        ORDER BY id desc
+    </select>
+
+    <!-- 分页, 使用了pagehelper插件 -->
+    <select id="findPagerByMap" resultType="Department" parameterType="map">
+        SELECT
+        <include refid="selectField"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <!-- AND id = #{id} -->
+        ORDER BY id desc
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterType="Department">
+        INSERT INTO
+        <include refid="tableName"></include>
+        (
+        <include refid="addField"></include>
+        ) VALUES (
+        <include refid="fieldValue"></include>
+        )
+    </insert>
+
+    <!-- updateByEntity -->
+    <update id="update" parameterType="Department">
+        UPDATE <include refid="tableName"></include>
+        SET
+        name = #{name}
+        WHERE
+        id = #{id}
+    </update>
+
+    <!-- updateByMap -->
+    <update id="updateByMap" parameterType="map">
+        UPDATE <include refid="tableName"></include>
+        SET
+        name = #{name}
+        WHERE
+        id = #{id}
+    </update>
+
+    <!-- delete -->
+    <delete id="delete" parameterType="Department">
+        DELETE FROM <include refid="tableName"></include>
+        WHERE
+        id = #{id}
+    </delete>
+
+    <!-- batch delete -->
+    <delete id="batchDelete" parameterType="String">
+        DELETE FROM <include refid="tableName"></include>
+        WHERE
+        id in (${ids})
+    </delete>
+
+</mapper>
