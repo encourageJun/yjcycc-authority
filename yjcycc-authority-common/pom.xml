@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.14.RELEASE</spring.version>
+        <spring.version>4.3.18.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -168,7 +168,7 @@
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.3.1</version>
+            <version>1.3.3</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
