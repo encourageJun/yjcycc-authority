@@ -26,7 +26,7 @@
 
         <!-- yjcycc -->
         <dependency>
-            <groupId>com.yjcycc.tools</groupId>
+            <groupId>org.yjcycc.tools</groupId>
             <artifactId>yjcycc-tools-common</artifactId>
             <version>1.0.0</version>
         </dependency>
