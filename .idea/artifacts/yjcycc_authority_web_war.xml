@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="yjcycc-authority-web:war">
+    <output-path>$PROJECT_DIR$/yjcycc-authority-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>yjcycc-authority-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="yjcycc-authority-web-1.0.0.war">
+      <element id="artifact" artifact-name="yjcycc-authority-web:war exploded" />
+    </root>
+  </artifact>
+</component>

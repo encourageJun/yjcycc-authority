@@ -1,0 +1,15 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.gitignore
+.idea/workspace.xml
+yjcycc-authority-common/target/
+yjcycc-authority-service-api/target/
+yjcycc-authority-service-impl/target/
+yjcycc-authority-web/target/

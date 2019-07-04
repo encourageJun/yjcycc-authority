@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yjcycc-authority-web" />
+        <module name="yjcycc-authority-common" />
+        <module name="yjcycc-authority-service-impl" />
+        <module name="yjcycc-authority-service-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yjcycc-authority" target="1.7" />
+      <module name="yjcycc-authority-common" target="1.7" />
+      <module name="yjcycc-authority-service-api" target="1.7" />
+      <module name="yjcycc-authority-service-impl" target="1.7" />
+      <module name="yjcycc-authority-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

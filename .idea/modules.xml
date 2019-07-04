@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/yjcycc-authority.iml" filepath="$PROJECT_DIR$/.idea/yjcycc-authority.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yjcycc-authority-common/yjcycc-authority-common.iml" filepath="$PROJECT_DIR$/yjcycc-authority-common/yjcycc-authority-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yjcycc-authority-service-api/yjcycc-authority-service-api.iml" filepath="$PROJECT_DIR$/yjcycc-authority-service-api/yjcycc-authority-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yjcycc-authority-service-impl/yjcycc-authority-service-impl.iml" filepath="$PROJECT_DIR$/yjcycc-authority-service-impl/yjcycc-authority-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yjcycc-authority-web/yjcycc-authority-web.iml" filepath="$PROJECT_DIR$/yjcycc-authority-web/yjcycc-authority-web.iml" />
+    </modules>
+  </component>
+</project>
