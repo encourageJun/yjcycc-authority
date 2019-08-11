@@ -8,8 +8,4 @@
 out
 gen
 .gitignore
-.idea/workspace.xml
-yjcycc-authority-common/target/
-yjcycc-authority-service-api/target/
-yjcycc-authority-service-impl/target/
-yjcycc-authority-web/target/
+target
